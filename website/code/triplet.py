@@ -6,9 +6,9 @@ def target_triplet(arr, Y):
     int_arr = [int(i) for i in split_arr]
     Y = int(Y)
 
-    value = sys.maxsize
-    temp_arr = []
+    value = sys.maxsize         #can be some high number
     #value = 9000000
+    temp_arr = []
 
     for i in range(len(int_arr)):
         for j in range(i + 1, len(int_arr)):
