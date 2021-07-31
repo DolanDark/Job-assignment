@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Assignment 3{% endblock %}
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+    <h3 align="center">Calculating Vowel Ratio from text file</h3>
+    <br>
+    <div>
+    <div class="custom-file text-center">
+        <input type="file" class="custom-file-input" name="txt_file" id="txt_file">
+        <label class="custom-file-label" for="customInput">Upload a text file</label>
+    </div>
+    <br>
+
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    </div>
+    <br>
+    <br>
+    <div align="center">
+        <label> {{output | safe}} </label>
+    </div>
+    <br>
+    <br>
+    <span><div class="border border-info">
+    <pre><code>
+        def word_check(string):
+        
+            count_vowel = 0
+            count_consonants = 0
+            
+            vowels = "AaEeIiOoUu"
+            nums_chars_space = "~@#$%^&*()123456789 0"
+            
+            for i in range(0, len(string)):
+                if string[i] in vowels:
+                    count_vowel += 1
+                elif string[i] in nums_chars_space:
+                    pass
+                else:
+                    count_consonants += 1
+            
+            print(count_vowel)
+            print(count_consonants)
+            
+            ratio = count_vowel/count_consonants
+            ratio_limit = round(ratio,2)
+            
+            return f'The ratio of the vowel and the consonants is {ratio_limit}'
+    </code></pre>
+    </div></span>
+</form>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Assignment 4{% endblock %}
+{% block content %}
+<form method="POST">
+    <h3 align="center">ATM (Calculation of number of denominations for a value)</h3>
+    <br>
+    <div class="form-group">
+        <input type="text" id="currency" name="currency" class="form-control"
+            placeholder="Please enter the amount...." />
+        <br/>
+        <div align="center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div align="center">
+        <label> {{output | safe}} </label>
+    </div>
+    <br>
+    <br>
+    <span><div class="border border-info">
+    <pre><code>
+        def currency_sort(val):
+
+            den = [100, 20, 10, 5, 1]
+            val = int(val)
+            
+            temp = val
+            scoop = []
+            
+            for i in range(0,len(den)):
+                temp2 = int(temp/den[i])
+                if (temp2):
+                    scoop.append(f'{temp2} units of the denomination {den[i]}')
+                    temp = temp%den[i]
+                    
+            full_str = " | ".join([str(i) for i in scoop])
+
+            return full_str
+    </code></pre>
+    </div></span>
+</form>{% endblock %}

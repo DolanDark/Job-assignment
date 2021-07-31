@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Assignment 5{% endblock %}
+{% block content %}
+<form method="POST">
+    <h3 align="center">Calculating sum of triplets closest to the target value from an array</h3>
+    <br>
+    <div class="form-group">
+        <input type="text" id="array_val" name="array_val" class="form-control"
+            placeholder="Enter the numbers of the array separated by spaces... for example : 1 -4 5 3 2 " />
+        <br>
+        <input type="number" id="target" name="target" class="form-control"
+            placeholder="Enter the target value..." />
+        <br>
+        <div align="center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        <br>
+        <br>
+    </div>
+    <div align="center">
+        <label> {{output | safe}} </label>
+    </div>
+    <br>
+    <br>
+    <span>
+    <div class="border border-info">
+    <pre><code>
+        def target_triplet(arr, Y):
+        
+            import sys
+            
+            split_arr = list(arr.split())
+            int_arr = [int(i) for i in split_arr]
+            Y = int(Y)
+            
+            value = sys.maxsize
+            temp_arr = []
+            
+            for i in range(len(int_arr)):
+                for j in range(i + 1, len(int_arr)):
+                    for k in range(j + 1, len(int_arr)):
+                        if (abs(Y - value) > abs(Y - (int_arr[i] + int_arr[j] + int_arr[k]))):
+                            value = (int_arr[i] + int_arr[j] + int_arr[k])
+                            temp_arr = []
+                            temp_arr = [int_arr[i], int_arr[j], int_arr[k]]
+            
+            return f'The closest to the target value {Y} is sum of {temp_arr} = {value}'
+    </code></pre>
+    </div></span>
+</form>{% endblock %}
