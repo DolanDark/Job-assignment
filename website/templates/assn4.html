@@ -33,7 +33,7 @@
                 temp2 = int(temp/den[i])
                 if (temp2):
                     scoop.append(f'{temp2} units of the denomination {den[i]}')
-                    temp = temp%den[i]
+                temp = temp%den[i]
                     
             full_str = " | ".join([str(i) for i in scoop])
 
